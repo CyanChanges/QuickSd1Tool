@@ -31,12 +31,16 @@ namespace Sd1Tool
         }
         private void timessd()
         {
-            if (Control.IsKeyLocked(Keys.CapsLock) && )
+            while (timeschkbox.Checked)
             {
-                sdkeys.Enabled = true;
+                if (Control.IsKeyLocked(Keys.CapsLock) && sdtimesnud.Value >= runtimes)
+                {
+                    sdkeys.Enabled = true;
+                }
+                else
+                { sdkeys.Enabled = false; }
             }
-            else
-            { sdkeys.Enabled = false; }
+            return;
         }
         public Form1()
         {
@@ -118,7 +122,7 @@ namespace Sd1Tool
         private void timeschkbox_CheckedChanged(object sender, EventArgs e)
         {
             if (timeschkbox.Checked)
-            { thread1 = new Thread(new ThreadStart(timessd)); Size = new Size(Size.Width, ssize.Height + 45); }
+            { thread1 = new Thread(new ThreadStart(timessd)); thread1.Start(); Size = new Size(Size.Width, ssize.Height + 45); }
             else 
             { thread1.Abort(); Size = new Size(Size.Width, ssize.Height); }
         }
