@@ -51,13 +51,15 @@ namespace Sd1Tool
 
         private void Form1_Active(object sender, EventArgs e)
         {
-            debug.Text = "Enter";
+            logchk.Text = "Stopped";
+            logchk.ForeColor = Color.Red;
             chkkeyleave.Enabled = false;
         }
 
         private void Form1_DeActive(object sender, EventArgs e)
         {
-            debug.Text = "Leave";
+            logchk.Text = "Running";
+            logchk.ForeColor = Color.Green;
             chkkeyleave.Enabled = true;
         }
 
@@ -70,6 +72,19 @@ namespace Sd1Tool
             else
             {
                 sdkeys.Enabled = false;
+            }
+        }
+
+        private void delaynud_ValueChanged(object sender, EventArgs e)
+        {
+            if (delaynud.Value < 2)
+            {
+                delaynud.Value = 100;
+            }
+            sdkeys.Interval = (int)delaynud.Value;
+            if (sdkeys.Interval < 2)
+            {
+                sdkeys.Interval = 100;
             }
         }
     }

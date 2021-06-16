@@ -37,8 +37,11 @@ namespace Sd1Tool
             this.RtnType = new System.Windows.Forms.ComboBox();
             this.Tips = new System.Windows.Forms.Label();
             this.chkkeyleave = new System.Windows.Forms.Timer(this.components);
-            this.debug = new System.Windows.Forms.Label();
+            this.logchk = new System.Windows.Forms.Label();
             this.delaylb = new System.Windows.Forms.Label();
+            this.delaynud = new System.Windows.Forms.NumericUpDown();
+            this.LockchkServicelb = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.delaynud)).BeginInit();
             this.SuspendLayout();
             // 
             // sdkeys
@@ -49,23 +52,23 @@ namespace Sd1Tool
             // 
             this.QDText.Location = new System.Drawing.Point(122, 12);
             this.QDText.Name = "QDText";
-            this.QDText.Size = new System.Drawing.Size(234, 31);
+            this.QDText.Size = new System.Drawing.Size(298, 31);
             this.QDText.TabIndex = 0;
             this.QDText.Text = "1";
             // 
             // sdtextlb
             // 
             this.sdtextlb.AutoSize = true;
-            this.sdtextlb.Location = new System.Drawing.Point(22, 17);
+            this.sdtextlb.Location = new System.Drawing.Point(12, 17);
             this.sdtextlb.Name = "sdtextlb";
             this.sdtextlb.Size = new System.Drawing.Size(94, 21);
             this.sdtextlb.TabIndex = 1;
-            this.sdtextlb.Text = "抢答文本";
+            this.sdtextlb.Text = "目标文本";
             // 
             // sddlb
             // 
             this.sddlb.AutoSize = true;
-            this.sddlb.Location = new System.Drawing.Point(22, 57);
+            this.sddlb.Location = new System.Drawing.Point(12, 53);
             this.sddlb.Name = "sddlb";
             this.sddlb.Size = new System.Drawing.Size(94, 21);
             this.sddlb.TabIndex = 2;
@@ -77,9 +80,9 @@ namespace Sd1Tool
             this.RtnType.Items.AddRange(new object[] {
             "Ctrl + Enter",
             "Enter"});
-            this.RtnType.Location = new System.Drawing.Point(122, 53);
+            this.RtnType.Location = new System.Drawing.Point(122, 49);
             this.RtnType.Name = "RtnType";
-            this.RtnType.Size = new System.Drawing.Size(234, 29);
+            this.RtnType.Size = new System.Drawing.Size(298, 29);
             this.RtnType.TabIndex = 3;
             this.RtnType.Text = "请选择";
             this.RtnType.SelectedIndexChanged += new System.EventHandler(this.RtnType_SelectedIndexChanged);
@@ -98,39 +101,80 @@ namespace Sd1Tool
             this.chkkeyleave.Interval = 500;
             this.chkkeyleave.Tick += new System.EventHandler(this.chkkeyleave_Tick);
             // 
-            // debug
+            // logchk
             // 
-            this.debug.AutoSize = true;
-            this.debug.Location = new System.Drawing.Point(280, 105);
-            this.debug.Name = "debug";
-            this.debug.Size = new System.Drawing.Size(0, 21);
-            this.debug.TabIndex = 5;
+            this.logchk.AutoSize = true;
+            this.logchk.Location = new System.Drawing.Point(271, 164);
+            this.logchk.Name = "logchk";
+            this.logchk.Size = new System.Drawing.Size(0, 21);
+            this.logchk.TabIndex = 5;
             // 
             // delaylb
             // 
             this.delaylb.AutoSize = true;
-            this.delaylb.Location = new System.Drawing.Point(22, 94);
+            this.delaylb.Location = new System.Drawing.Point(12, 89);
             this.delaylb.Name = "delaylb";
             this.delaylb.Size = new System.Drawing.Size(94, 21);
             this.delaylb.TabIndex = 6;
             this.delaylb.Text = "发送间隔";
             // 
+            // delaynud
+            // 
+            this.delaynud.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.delaynud.Location = new System.Drawing.Point(122, 84);
+            this.delaynud.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.delaynud.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.delaynud.Name = "delaynud";
+            this.delaynud.Size = new System.Drawing.Size(298, 31);
+            this.delaynud.TabIndex = 7;
+            this.delaynud.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.delaynud.ValueChanged += new System.EventHandler(this.delaynud_ValueChanged);
+            // 
+            // LockchkServicelb
+            // 
+            this.LockchkServicelb.AutoSize = true;
+            this.LockchkServicelb.Location = new System.Drawing.Point(22, 164);
+            this.LockchkServicelb.Name = "LockchkServicelb";
+            this.LockchkServicelb.Size = new System.Drawing.Size(249, 21);
+            this.LockchkServicelb.TabIndex = 8;
+            this.LockchkServicelb.Text = "- [Caps Lock] 检测器: ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(368, 165);
+            this.ClientSize = new System.Drawing.Size(440, 194);
+            this.Controls.Add(this.LockchkServicelb);
+            this.Controls.Add(this.delaynud);
             this.Controls.Add(this.delaylb);
-            this.Controls.Add(this.debug);
+            this.Controls.Add(this.logchk);
             this.Controls.Add(this.Tips);
             this.Controls.Add(this.RtnType);
             this.Controls.Add(this.sddlb);
             this.Controls.Add(this.sdtextlb);
             this.Controls.Add(this.QDText);
+            this.DoubleBuffered = true;
             this.Name = "Form1";
-            this.Text = "抢答神器";
+            this.Text = "速发神器";
             this.Activated += new System.EventHandler(this.Form1_Active);
             this.Deactivate += new System.EventHandler(this.Form1_DeActive);
+            ((System.ComponentModel.ISupportInitialize)(this.delaynud)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,8 +189,10 @@ namespace Sd1Tool
         private System.Windows.Forms.ComboBox RtnType;
         private System.Windows.Forms.Label Tips;
         private System.Windows.Forms.Timer chkkeyleave;
-        private System.Windows.Forms.Label debug;
+        private System.Windows.Forms.Label logchk;
         private System.Windows.Forms.Label delaylb;
+        private System.Windows.Forms.NumericUpDown delaynud;
+        private System.Windows.Forms.Label LockchkServicelb;
     }
 }
 
