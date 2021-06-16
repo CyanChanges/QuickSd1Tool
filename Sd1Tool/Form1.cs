@@ -29,19 +29,6 @@ namespace Sd1Tool
             keybd_event(0x14, 0x45, KEYEVENTF_EXTENDEDKEY, (UIntPtr)0);
             keybd_event(0x14, 0x45, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP,(UIntPtr)0);
         }
-        private void timessd()
-        {
-            while (timeschkbox.Checked)
-            {
-                if (Control.IsKeyLocked(Keys.CapsLock) && sdtimesnud.Value >= runtimes)
-                {
-                    sdkeys.Enabled = true;
-                }
-                else
-                { sdkeys.Enabled = false; }
-            }
-            return;
-        }
         public Form1()
         {
             InitializeComponent();
@@ -53,6 +40,7 @@ namespace Sd1Tool
                 {RtnKey.Enter, "{Enter}"}
         };
         int runtimes = 0;
+        
         private void sdkey_Tick(object sender, EventArgs e)
         {
             SendKeys.Send(QDText.Text + keydict[Rtn]);
@@ -103,7 +91,8 @@ namespace Sd1Tool
                     sdkeys.Enabled = false;
                 }
             }
-
+            else
+            { times.Enabled = true; }
         }
 
         private void delaynud_ValueChanged(object sender, EventArgs e)
@@ -118,13 +107,29 @@ namespace Sd1Tool
                 sdkeys.Interval = 100;
             }
         }
-        Thread thread1;
         private void timeschkbox_CheckedChanged(object sender, EventArgs e)
         {
             if (timeschkbox.Checked)
-            { thread1 = new Thread(new ThreadStart(timessd)); thread1.Start(); Size = new Size(Size.Width, ssize.Height + 45); }
+            { Size = new Size(Size.Width, ssize.Height + 45); }
             else 
-            { thread1.Abort(); Size = new Size(Size.Width, ssize.Height); }
+            { Size = new Size(Size.Width, ssize.Height); }
+        }
+
+        private void times_Tick(object sender, EventArgs e)
+        {
+            if (!(sdtimesnud.Value > runtimes))
+            {
+                sdkeys.Enabled = false;
+                CapsLock();
+                runtimes = 0;
+            }
+            if (Control.IsKeyLocked(Keys.CapsLock) && sdtimesnud.Value > runtimes)
+            {
+                DosdBar.Maximum = (int)sdtimesnud.Value;
+                sdkeys.Enabled = true;
+                DosdBar.Value = runtimes;
+            }
+            else { sdkeys.Enabled = false; }
         }
     }
 }

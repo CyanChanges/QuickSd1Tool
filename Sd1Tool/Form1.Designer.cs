@@ -45,6 +45,7 @@ namespace Sd1Tool
             this.timeschkbox = new System.Windows.Forms.CheckBox();
             this.sdtimesnud = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
+            this.times = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.delaynud)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sdtimesnud)).BeginInit();
             this.SuspendLayout();
@@ -212,6 +213,10 @@ namespace Sd1Tool
             this.label1.TabIndex = 12;
             this.label1.Text = "指定次数";
             // 
+            // times
+            // 
+            this.times.Tick += new System.EventHandler(this.times_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
@@ -263,6 +268,7 @@ namespace Sd1Tool
         private System.Windows.Forms.NumericUpDown sdtimesnud;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer times;
     }
 }
 
