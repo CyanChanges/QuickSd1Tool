@@ -16,7 +16,7 @@ namespace Sd1Tool
         Enter = 0,
         CtrlEnter = 1
     }
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         [DllImport("user32.dll")]
         static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
@@ -28,8 +28,10 @@ namespace Sd1Tool
             const int KEYEVENTF_KEYUP = 0x2;
             keybd_event(0x14, 0x45, KEYEVENTF_EXTENDEDKEY, (UIntPtr)0);
             keybd_event(0x14, 0x45, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP,(UIntPtr)0);
+            _ = KEYEVENTF_EXTENDEDKEY;
+            _ = KEYEVENTF_KEYUP;
         }
-        public Form1()
+        public Main()
         {
             InitializeComponent();
             ssize = Size;
@@ -110,7 +112,7 @@ namespace Sd1Tool
         private void timeschkbox_CheckedChanged(object sender, EventArgs e)
         {
             if (timeschkbox.Checked)
-            { Size = new Size(Size.Width, ssize.Height + 45); }
+            { Size = new Size(Size.Width, ssize.Height + 46); }
             else 
             { Size = new Size(Size.Width, ssize.Height); }
         }
@@ -119,6 +121,7 @@ namespace Sd1Tool
         {
             if (!(sdtimesnud.Value > runtimes))
             {
+                DosdBar.Value = runtimes;
                 sdkeys.Enabled = false;
                 CapsLock();
                 runtimes = 0;
@@ -130,6 +133,42 @@ namespace Sd1Tool
                 DosdBar.Value = runtimes;
             }
             else { sdkeys.Enabled = false; }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _ = runtimes;
+            _ = Rtn;
+            _ = Rtn;
+            _ = this;
+        }
+
+        private void DESTORY_Click(object sender, EventArgs e)
+        {
+            Opacity = 0.42;
+            RightToLeft = RightToLeft.Yes;
+            RightToLeftLayout = true;
+            DESTORY.Enabled = false;
+            timeschkbox.Enabled = false;
+            delaynud.Enabled = false;
+            delaynud.Value = 2910;
+            _ = this;
+            if (!Properties.Settings.Default.Achievement1)
+            {
+                Properties.Settings.Default.Achievement1 = true;
+            }
+        }
+        public void ActiveAchBtn(object sender, FormClosedEventArgs e)
+        {
+            AchBtn.Enabled = true;
+        }
+        private void AchBtn_Click(object sender, EventArgs e)
+        {
+            Button btnself = (Button)sender;
+            btnself.Enabled = false;
+            Form achs = new Achievements();
+            achs.FormClosed += new FormClosedEventHandler(ActiveAchBtn);
+            achs.Show();
         }
     }
 }
