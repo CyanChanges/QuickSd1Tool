@@ -8,6 +8,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.Reflection;
+using System.Configuration;
 
 namespace Sd1Tool
 {
@@ -18,6 +20,13 @@ namespace Sd1Tool
     }
     public partial class Main : Form
     {
+        String UpdateLog = @"新内容：
+1.新增更新检测
+2.新增更新提示
+3.新增降级检测
+4.新增降级提示
+5.新手教程(绝对不是懒得做才出错的 XD)";
+        Version NowVersion = Assembly.GetExecutingAssembly().GetName().Version;
         [DllImport("user32.dll")]
         static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
         Size ssize;
@@ -31,8 +40,42 @@ namespace Sd1Tool
             _ = KEYEVENTF_EXTENDEDKEY;
             _ = KEYEVENTF_KEYUP;
         }
+        private bool Upgrade()
+        { if (NowVersion > Properties.Settings.Default.Version) { return true; } else { return false; } }
+        private bool Demotion()
+        { if (NowVersion < Properties.Settings.Default.Version) { return true; } else { return false; } }
+        List<String> EmjLite = new List<String> { "OvO", "$o$", "XvX", "QAQ", "qvq", "AvA", "AwA", "xd", "XD", "XDD" };
         public Main()
         {
+            if (Properties.Settings.Default.Version == null)
+            {
+                Properties.Settings.Default.Version = NowVersion;
+                Random ran = new Random();
+                MessageBox.Show("新手教程被吃了！\n" + EmjLite[ran.Next(100) % EmjLite.Count], "糟糕！出错了", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                _ = EmjLite;
+                _ = ran;
+                goto Init;
+            }
+            if (Upgrade())
+            {
+                MessageBox.Show(UpdateLog, Properties.Settings.Default.Version + " -> " + NowVersion, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (Demotion())
+                {
+                    DialogResult msresult = MessageBox.Show("降级会导致程序数据无法加载或丢失？\n确定要继续吗？", "降级", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (msresult == DialogResult.Yes)
+                    { goto Init; }
+                    else
+                    { Application.Exit(); }
+                }
+            }
+            Init:
+            if (Properties.Settings.Default.Version != NowVersion)
+            {
+                Properties.Settings.Default.Version = NowVersion;
+            }
             InitializeComponent();
             ssize = Size;
         }
@@ -137,6 +180,7 @@ namespace Sd1Tool
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Properties.Settings.Default.Save();
             _ = runtimes;
             _ = Rtn;
             _ = Rtn;

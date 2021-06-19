@@ -37,7 +37,7 @@ namespace Sd1Tool
         {
             // Init Achievements 初始化成就显示
             UserControl ach1 = new achievement("???", Properties.Settings.Default.Achievement1 ? "已达成" : "未达成", "点击 ??? 按钮");
-            UserControl ach2 = new achievement(null,null,null);
+            UserControl ach2 = new achievement(null,null);
             AchAdd(ach1);
             SetAll();
         }

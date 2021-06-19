@@ -174,9 +174,6 @@
   <data name="delaylb.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 21</value>
   </data>
-  <data name="delaynud.Size" type="System.Drawing.Size, System.Drawing">
-    <value>298, 31</value>
-  </data>
   <data name="sddlb.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -185,6 +182,9 @@
   </data>
   <data name="&gt;&gt;DESTORY.Name" xml:space="preserve">
     <value>DESTORY</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 21</value>
   </data>
   <data name="&gt;&gt;Tips.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -294,9 +294,6 @@
   <data name="sdtextlb.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;chkkeyleave.Name" xml:space="preserve">
-    <value>chkkeyleave</value>
-  </data>
   <data name="RtnType.Size" type="System.Drawing.Size, System.Drawing">
     <value>298, 29</value>
   </data>
@@ -312,8 +309,8 @@
   <data name="label1.Text" xml:space="preserve">
     <value>指定次数</value>
   </data>
-  <data name="delaylb.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;chkkeyleave.Name" xml:space="preserve">
+    <value>chkkeyleave</value>
   </data>
   <data name="AchBtn.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -332,6 +329,9 @@
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Main</value>
+  </data>
+  <data name="&gt;&gt;AdvBtn.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="QDText.Location" type="System.Drawing.Point, System.Drawing">
     <value>121, 46</value>
@@ -361,6 +361,9 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;timeschkbox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;DosdBar.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;AchBtn.Parent" xml:space="preserve">
@@ -498,7 +501,7 @@
   <data name="delaynud.Location" type="System.Drawing.Point, System.Drawing">
     <value>121, 121</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="sdtextlb.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 21</value>
   </data>
   <data name="lockstats.Size" type="System.Drawing.Size, System.Drawing">
@@ -506,9 +509,6 @@
   </data>
   <data name="QDText.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="sdtextlb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 21</value>
   </data>
   <data name="DESTORY.Location" type="System.Drawing.Point, System.Drawing">
     <value>370, 220</value>
@@ -555,6 +555,9 @@
   <data name="&gt;&gt;sdtextlb.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="delaylb.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="&gt;&gt;sddlb.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
@@ -567,17 +570,14 @@
   <data name="&gt;&gt;delaylb.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;DosdBar.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="delaynud.Size" type="System.Drawing.Size, System.Drawing">
+    <value>298, 31</value>
   </data>
   <data name="&gt;&gt;RtnType.Name" xml:space="preserve">
     <value>RtnType</value>
   </data>
-  <data name="&gt;&gt;AdvBtn.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="RtnType.Items" xml:space="preserve">
+    <value>Ctrl + Enter</value>
   </data>
   <data name="&gt;&gt;sdtimesnud.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -603,11 +603,11 @@
   <data name="&gt;&gt;CountBtn.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="RtnType.Items" xml:space="preserve">
-    <value>Ctrl + Enter</value>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <metadata name="chkkeyleave.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>155, 51</value>
+    <value>154, 15</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>zh-CN</value>
@@ -616,9 +616,9 @@
     <value>True</value>
   </metadata>
   <metadata name="times.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>347, 51</value>
+    <value>345, 15</value>
   </metadata>
   <metadata name="sdkeys.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 51</value>
+    <value>23, 14</value>
   </metadata>
 </root>
