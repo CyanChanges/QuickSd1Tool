@@ -131,8 +131,14 @@
   <data name="&gt;&gt;timeschkbox.Name" xml:space="preserve">
     <value>timeschkbox</value>
   </data>
+  <data name="&gt;&gt;RtnType.Name" xml:space="preserve">
+    <value>RtnType</value>
+  </data>
   <data name="timeschkbox.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
+  </data>
+  <data name="RtnType.Items1" xml:space="preserve">
+    <value>Enter</value>
   </data>
   <data name="&gt;&gt;sdtimesnud.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -145,7 +151,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="sdtextlb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 51</value>
+    <value>12, 47</value>
   </data>
   <data name="&gt;&gt;timeschkbox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -157,22 +163,31 @@
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="delaylb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 126</value>
+    <value>12, 122</value>
   </data>
   <data name="CountBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 32</value>
   </data>
   <data name="sddlb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 88</value>
+    <value>12, 84</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="RtnType.Items1" xml:space="preserve">
-    <value>Enter</value>
+  <data name="AchBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="delaylb.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 21</value>
+  </data>
+  <data name="&gt;&gt;delaylb.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="AchBtn.Text" xml:space="preserve">
+    <value>成就</value>
+  </data>
+  <data name="delaynud.Size" type="System.Drawing.Size, System.Drawing">
+    <value>298, 31</value>
   </data>
   <data name="sddlb.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -186,8 +201,11 @@
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 21</value>
   </data>
-  <data name="&gt;&gt;Tips.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Tips.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="LockchkServicelb.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
   <data name="&gt;&gt;lockstats.ZOrder" xml:space="preserve">
     <value>11</value>
@@ -231,7 +249,7 @@
   <data name="RtnType.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;Tips.Parent" xml:space="preserve">
+  <data name="&gt;&gt;delaynud.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="sdtimesnud.Size" type="System.Drawing.Size, System.Drawing">
@@ -249,9 +267,6 @@
   <data name="&gt;&gt;DESTORY.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;AdvBtn.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="DESTORY.Text" xml:space="preserve">
     <value>???</value>
   </data>
@@ -259,7 +274,10 @@
     <value>$this</value>
   </data>
   <data name="lockstats.Location" type="System.Drawing.Point, System.Drawing">
-    <value>258, 199</value>
+    <value>258, 195</value>
+  </data>
+  <data name="&gt;&gt;sdtextlb.Name" xml:space="preserve">
+    <value>sdtextlb</value>
   </data>
   <data name="DosdBar.Size" type="System.Drawing.Size, System.Drawing">
     <value>377, 21</value>
@@ -267,11 +285,8 @@
   <data name="&gt;&gt;RtnType.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="AdvBtn.Text" xml:space="preserve">
-    <value>成就</value>
-  </data>
   <data name="LockchkServicelb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 198</value>
+    <value>22, 194</value>
   </data>
   <data name="sdtextlb.Text" xml:space="preserve">
     <value>目标文本</value>
@@ -282,11 +297,11 @@
   <data name="CountBtn.Text" xml:space="preserve">
     <value>统计</value>
   </data>
-  <data name="Tips.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 21</value>
+  <data name="CountBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;timeschkbox.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="&gt;&gt;delaynud.Name" xml:space="preserve">
+    <value>delaynud</value>
   </data>
   <data name="&gt;&gt;QDText.ZOrder" xml:space="preserve">
     <value>16</value>
@@ -294,53 +309,47 @@
   <data name="sdtextlb.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;chkkeyleave.Name" xml:space="preserve">
+    <value>chkkeyleave</value>
+  </data>
   <data name="RtnType.Size" type="System.Drawing.Size, System.Drawing">
     <value>298, 29</value>
   </data>
-  <data name="&gt;&gt;sdtextlb.Name" xml:space="preserve">
-    <value>sdtextlb</value>
+  <data name="&gt;&gt;DosdBar.Name" xml:space="preserve">
+    <value>DosdBar</value>
   </data>
   <data name="LockchkServicelb.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="DosdBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 305</value>
+    <value>26, 301</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>指定次数</value>
   </data>
-  <data name="&gt;&gt;chkkeyleave.Name" xml:space="preserve">
-    <value>chkkeyleave</value>
+  <data name="delaylb.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="AchBtn.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
-  </data>
-  <data name="lockstats.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="&gt;&gt;sdkeys.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 263</value>
+    <value>12, 259</value>
   </data>
   <data name="&gt;&gt;LockchkServicelb.Name" xml:space="preserve">
     <value>LockchkServicelb</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Main</value>
-  </data>
-  <data name="&gt;&gt;AdvBtn.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="AchBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 32</value>
   </data>
   <data name="QDText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 46</value>
+    <value>121, 42</value>
   </data>
   <data name="Tips.Text" xml:space="preserve">
     <value>- 使用 Caps Lock 启动</value>
-  </data>
-  <data name="&gt;&gt;AdvBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Tips.ZOrder" xml:space="preserve">
     <value>12</value>
@@ -352,7 +361,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="timeschkbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 227</value>
+    <value>26, 223</value>
   </data>
   <data name="&gt;&gt;AboutBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -361,9 +370,6 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;timeschkbox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;DosdBar.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;AchBtn.Parent" xml:space="preserve">
@@ -378,20 +384,17 @@
   <data name="Tips.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="LockchkServicelb.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="AboutBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="Tips.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 169</value>
+    <value>22, 165</value>
   </data>
   <data name="&gt;&gt;DosdBar.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="&gt;&gt;AboutBtn.Name" xml:space="preserve">
     <value>AboutBtn</value>
-  </data>
-  <data name="&gt;&gt;times.Name" xml:space="preserve">
-    <value>times</value>
   </data>
   <data name="QDText.Size" type="System.Drawing.Size, System.Drawing">
     <value>298, 31</value>
@@ -408,20 +411,11 @@
   <data name="&gt;&gt;QDText.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;sddlb.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="sddlb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 21</value>
-  </data>
-  <data name="&gt;&gt;DosdBar.Name" xml:space="preserve">
-    <value>DosdBar</value>
-  </data>
   <data name="&gt;&gt;sdtextlb.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;AdvBtn.Name" xml:space="preserve">
-    <value>AdvBtn</value>
+  <data name="sdtimesnud.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 254</value>
   </data>
   <data name="&gt;&gt;LockchkServicelb.Parent" xml:space="preserve">
     <value>$this</value>
@@ -429,14 +423,17 @@
   <data name="&gt;&gt;QDText.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;timeschkbox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
   <data name="CountBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>287, 0</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="AdvBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>361, 0</value>
+  <data name="AboutBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 32</value>
   </data>
   <data name="&gt;&gt;QDText.Name" xml:space="preserve">
     <value>QDText</value>
@@ -448,19 +445,22 @@
     <value>9</value>
   </data>
   <data name="RtnType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 84</value>
+    <value>121, 80</value>
   </data>
-  <data name="&gt;&gt;delaynud.Name" xml:space="preserve">
-    <value>delaynud</value>
+  <data name="&gt;&gt;Tips.Name" xml:space="preserve">
+    <value>Tips</value>
   </data>
   <data name="&gt;&gt;lockstats.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Main</value>
+  </data>
   <data name="&gt;&gt;LockchkServicelb.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="AdvBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+  <data name="delaynud.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 117</value>
   </data>
   <data name="DESTORY.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 32</value>
@@ -486,9 +486,6 @@
   <data name="DESTORY.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="&gt;&gt;RtnType.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
   <data name="&gt;&gt;AboutBtn.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -498,11 +495,11 @@
   <data name="&gt;&gt;lockstats.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="delaynud.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 121</value>
+  <data name="&gt;&gt;Tips.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="sdtextlb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 21</value>
+  <data name="Tips.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 21</value>
   </data>
   <data name="lockstats.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 21</value>
@@ -510,17 +507,17 @@
   <data name="QDText.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="DESTORY.Location" type="System.Drawing.Point, System.Drawing">
-    <value>370, 220</value>
+  <data name="sdtextlb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 21</value>
   </data>
-  <data name="sdtimesnud.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 258</value>
+  <data name="DESTORY.Location" type="System.Drawing.Point, System.Drawing">
+    <value>354, 219</value>
+  </data>
+  <data name="delaynud.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;CountBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="AboutBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 32</value>
   </data>
   <data name="delaylb.Text" xml:space="preserve">
     <value>发送间隔</value>
@@ -540,8 +537,8 @@
   <data name="&gt;&gt;sddlb.Name" xml:space="preserve">
     <value>sddlb</value>
   </data>
-  <data name="&gt;&gt;delaynud.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="lockstats.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;lockstats.Name" xml:space="preserve">
     <value>lockstats</value>
@@ -549,14 +546,8 @@
   <data name="Tips.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="AdvBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 32</value>
-  </data>
   <data name="&gt;&gt;sdtextlb.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="delaylb.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="&gt;&gt;sddlb.ZOrder" xml:space="preserve">
     <value>14</value>
@@ -567,14 +558,14 @@
   <data name="&gt;&gt;delaylb.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;delaylb.Parent" xml:space="preserve">
+  <data name="&gt;&gt;RtnType.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;DosdBar.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="delaynud.Size" type="System.Drawing.Size, System.Drawing">
-    <value>298, 31</value>
-  </data>
-  <data name="&gt;&gt;RtnType.Name" xml:space="preserve">
-    <value>RtnType</value>
+  <data name="&gt;&gt;sddlb.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="RtnType.Items" xml:space="preserve">
     <value>Ctrl + Enter</value>
@@ -591,11 +582,11 @@
   <data name="&gt;&gt;sddlb.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="delaynud.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="&gt;&gt;times.Name" xml:space="preserve">
+    <value>times</value>
   </data>
-  <data name="&gt;&gt;Tips.Name" xml:space="preserve">
-    <value>Tips</value>
+  <data name="sddlb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 21</value>
   </data>
   <data name="&gt;&gt;times.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

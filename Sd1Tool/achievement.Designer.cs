@@ -38,7 +38,7 @@ namespace Sd1Tool
             // AchNamelb
             // 
             this.AchNamelb.AutoSize = true;
-            this.AchNamelb.Location = new System.Drawing.Point(4, 4);
+            this.AchNamelb.Location = new System.Drawing.Point(4, 6);
             this.AchNamelb.Name = "AchNamelb";
             this.AchNamelb.Size = new System.Drawing.Size(74, 21);
             this.AchNamelb.TabIndex = 0;
@@ -47,7 +47,7 @@ namespace Sd1Tool
             // AchName
             // 
             this.AchName.AutoSize = true;
-            this.AchName.Location = new System.Drawing.Point(56, 4);
+            this.AchName.Location = new System.Drawing.Point(56, 6);
             this.AchName.Name = "AchName";
             this.AchName.Size = new System.Drawing.Size(52, 21);
             this.AchName.TabIndex = 1;
@@ -57,7 +57,7 @@ namespace Sd1Tool
             // AchStatuslb
             // 
             this.AchStatuslb.AutoSize = true;
-            this.AchStatuslb.Location = new System.Drawing.Point(4, 37);
+            this.AchStatuslb.Location = new System.Drawing.Point(4, 39);
             this.AchStatuslb.Name = "AchStatuslb";
             this.AchStatuslb.Size = new System.Drawing.Size(74, 21);
             this.AchStatuslb.TabIndex = 2;
@@ -66,7 +66,7 @@ namespace Sd1Tool
             // AchStatus
             // 
             this.AchStatus.AutoSize = true;
-            this.AchStatus.Location = new System.Drawing.Point(56, 37);
+            this.AchStatus.Location = new System.Drawing.Point(56, 39);
             this.AchStatus.Name = "AchStatus";
             this.AchStatus.Size = new System.Drawing.Size(52, 21);
             this.AchStatus.TabIndex = 3;

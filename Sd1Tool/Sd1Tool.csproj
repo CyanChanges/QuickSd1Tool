@@ -113,6 +113,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="achievement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -125,6 +131,18 @@
     <Compile Include="Achievements.Designer.cs">
       <DependentUpon>Achievements.cs</DependentUpon>
     </Compile>
+    <Compile Include="counter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="counter.Designer.cs">
+      <DependentUpon>counter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Counters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Counters.Designer.cs">
+      <DependentUpon>Counters.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,11 +151,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="achievement.resx">
       <DependentUpon>achievement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Achievements.resx">
       <DependentUpon>Achievements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="counter.resx">
+      <DependentUpon>counter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Counters.resx">
+      <DependentUpon>Counters.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

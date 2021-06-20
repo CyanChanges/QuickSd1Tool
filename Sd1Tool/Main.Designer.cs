@@ -203,12 +203,14 @@ namespace Sd1Tool
             resources.ApplyResources(this.CountBtn, "CountBtn");
             this.CountBtn.Name = "CountBtn";
             this.CountBtn.UseVisualStyleBackColor = true;
+            this.CountBtn.Click += new System.EventHandler(this.CountBtn_Click);
             // 
             // AboutBtn
             // 
             resources.ApplyResources(this.AboutBtn, "AboutBtn");
             this.AboutBtn.Name = "AboutBtn";
             this.AboutBtn.UseVisualStyleBackColor = true;
+            this.AboutBtn.Click += new System.EventHandler(this.AboutBtn_Click);
             // 
             // Main
             // 

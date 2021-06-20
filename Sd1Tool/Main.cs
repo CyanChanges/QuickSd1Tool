@@ -20,18 +20,17 @@ namespace Sd1Tool
     }
     public partial class Main : Form
     {
+        public bool CheckRun() { return Control.IsKeyLocked(Keys.CapsLock); }
+        About FAbout = new About();
         String UpdateLog = @"新内容：
-1.新增更新检测
-2.新增更新提示
-3.新增降级检测
-4.新增降级提示
-5.新手教程(绝对不是懒得做才出错的 XD)";
+1.新增统计功能
+   - 1.统计新增新增发送计数";
         Version NowVersion = Assembly.GetExecutingAssembly().GetName().Version;
         [DllImport("user32.dll")]
         static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
         Size ssize;
         RtnKey Rtn = RtnKey.CtrlEnter;
-        private void CapsLock()
+        private void BackKey()
         {
             const int KEYEVENTF_EXTENDEDKEY = 0x1;
             const int KEYEVENTF_KEYUP = 0x2;
@@ -47,6 +46,7 @@ namespace Sd1Tool
         List<String> EmjLite = new List<String> { "OvO", "$o$", "XvX", "QAQ", "qvq", "AvA", "AwA", "xd", "XD", "XDD" };
         public Main()
         {
+            //MessageBox.Show(Properties.Settings.Default.Version.ToString());
             if (Properties.Settings.Default.Version == null)
             {
                 Properties.Settings.Default.Version = NowVersion;
@@ -59,6 +59,7 @@ namespace Sd1Tool
             if (Upgrade())
             {
                 MessageBox.Show(UpdateLog, Properties.Settings.Default.Version + " -> " + NowVersion, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                goto Init;
             }
             else
             {
@@ -72,11 +73,12 @@ namespace Sd1Tool
                 }
             }
             Init:
+            InitializeComponent();
             if (Properties.Settings.Default.Version != NowVersion)
             {
                 Properties.Settings.Default.Version = NowVersion;
             }
-            InitializeComponent();
+            Properties.Settings.Default.Save();
             ssize = Size;
         }
         readonly Dictionary<RtnKey, String> keydict = new Dictionary<RtnKey, String>
@@ -90,6 +92,7 @@ namespace Sd1Tool
         {
             SendKeys.Send(QDText.Text + keydict[Rtn]);
             runtimes++;
+            Properties.Settings.Default.Sends++;
         }
 
         private void RtnType_SelectedIndexChanged(object sender, EventArgs e)
@@ -118,7 +121,10 @@ namespace Sd1Tool
         private void Form1_DeActive(object sender, EventArgs e)
         {
             lockstats.Text = "Running";
-            lockstats.ForeColor = Color.Green;
+            if (Opacity != 0.42)
+            {
+                lockstats.ForeColor = Color.Green;
+            }
             chkkeyleave.Enabled = true;
         }
 
@@ -127,7 +133,7 @@ namespace Sd1Tool
             if (!timeschkbox.Checked)
             {
                 runtimes = 0;
-                if (Control.IsKeyLocked(Keys.CapsLock))
+                if (CheckRun())
                 {
                     sdkeys.Enabled = true;
                 }
@@ -166,10 +172,10 @@ namespace Sd1Tool
             {
                 DosdBar.Value = runtimes;
                 sdkeys.Enabled = false;
-                CapsLock();
+                BackKey();
                 runtimes = 0;
             }
-            if (Control.IsKeyLocked(Keys.CapsLock) && sdtimesnud.Value > runtimes)
+            if (CheckRun() && sdtimesnud.Value > runtimes)
             {
                 DosdBar.Maximum = (int)sdtimesnud.Value;
                 sdkeys.Enabled = true;
@@ -195,7 +201,7 @@ namespace Sd1Tool
             DESTORY.Enabled = false;
             timeschkbox.Enabled = false;
             delaynud.Enabled = false;
-            delaynud.Value = 2910;
+            delaynud.Value = 5;
             _ = this;
             if (!Properties.Settings.Default.Achievement1)
             {
@@ -209,10 +215,109 @@ namespace Sd1Tool
         private void AchBtn_Click(object sender, EventArgs e)
         {
             Button btnself = (Button)sender;
-            btnself.Enabled = false;
             Form achs = new Achievements();
             achs.FormClosed += new FormClosedEventHandler(ActiveAchBtn);
-            achs.Show();
+            btnself.Enabled = false;
+            achs.ShowDialog();
+        }
+
+        private void AboutBtn_Click(object sender, EventArgs e)
+        {
+            if (!FAbout.Visible)
+            {
+                FAbout.FormClosed += new FormClosedEventHandler(FAbout_FormClosed);
+                ((Button)sender).Enabled = false;
+                FAbout.ShowDialog();
+            }
+        }
+
+        private void FAbout_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            AboutBtn.Enabled = true;
+        }
+
+        /// <summary>
+        /// 神奇 MagicKey 类，勿动！
+        /// ———— Cyq20100313
+        /// </summary>
+        class MagicKey
+        {
+            public void Test()
+            {
+                // Magic codes Init Start
+                MagicKey.MasterObj master = new MagicKey.MasterObj();
+                master.MasterName = "Cyq20100313";
+                MagicKey magickey = new MagicKey(master);
+                magickey.keyname = "The Magic Key";
+                magickey.Skill.Add("Controller");
+                magickey.MagicPower = 233333.33F;
+                master.MagicPower = 2333333333.333;
+                master.Skill.Add("T h e   M A S T E R");
+                //master.Out(); 
+                // Magic codes Init End
+            }
+            public enum DoAffects
+            {
+                Nothing = 0,
+                Error = 1,
+                Successful = 2,
+                NoOwn = 3
+            }
+            public class MasterObj
+            {
+                string Name = "No Master";
+                public Double MagicPower = int.MinValue;
+                public List<string> Skill = new List<string>();
+                public String MasterName { get { return this.Name; } set { this.Name = value; } }
+                public List<MagicKey> OwnKeys = new List<MagicKey>();
+                bool Cksame(String n, String SkillName)
+                {
+                    if (n == SkillName)
+                    { return true; }
+                    else { return false; }
+                }
+                public void Out()
+                {
+                    MessageBox.Show("你的决心碎了亿地！", "提示 - UNDER TOOLS");
+                }
+                public DoAffects UseKey(MagicKey ownkey, String SkillName)
+                {
+                    if (!(ownkey.MasterName == Name && ownkey.MasterObject == this) && this.OwnKeys.Exists(t => t == ownkey))
+                    { return DoAffects.NoOwn; }
+                    if (ownkey.Skill.Exists(t => t == SkillName))
+                    {
+                        return DoAffects.Successful;
+                    }
+                    else { return DoAffects.Nothing; }
+                }
+            }
+            public string keyname = "Magic Key";
+            public List<String> Skill = new List<String>();
+            public float MagicPower;
+            MasterObj MasterObject;
+            public string MasterName;
+            public MagicKey(MasterObj master)
+            {
+                master.OwnKeys.Add(this);
+                MasterObject = master;
+                MasterName = MasterObject.MasterName;
+            }
+            public MagicKey()
+            {
+                MasterObject = new MasterObj();
+                MasterName = MasterObject.MasterName;
+            }
+        }
+        public void Counter_Closed(object sender, FormClosedEventArgs e)
+        {
+            CountBtn.Enabled = true;
+        }
+        private void CountBtn_Click(object sender, EventArgs e)
+        {
+            Counters counter = new Counters();
+            counter.FormClosed += new FormClosedEventHandler(Counter_Closed);
+            ((Button)sender).Enabled = false;
+            counter.ShowDialog();
         }
     }
 }
