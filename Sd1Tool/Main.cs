@@ -26,8 +26,7 @@ namespace Sd1Tool
         public bool CheckRun() { return Control.IsKeyLocked(Keys.CapsLock); }
         About FAbout = new About();
         String UpdateLog = @"新内容：
-1.新增统计功能
-   - 1.统计新增新增发送计数";
+1.修复版本检测存储问题";
         [DllImport("user32.dll")]
         static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
         Size ssize;
@@ -53,6 +52,7 @@ namespace Sd1Tool
             if (Upgrade())
             {
                 MessageBox.Show(UpdateLog, RegVerSaver.Version + " -> " + NowVersion, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                goto Init;
             }
             else
             {
@@ -60,7 +60,7 @@ namespace Sd1Tool
                 {
                     DialogResult msresult = MessageBox.Show("降级会导致程序数据无法加载或丢失？\n确定要继续吗？", "降级", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (msresult == DialogResult.Yes)
-                    {  }
+                    { goto Init; }
                     else
                     { Application.Exit(); }
                 }
@@ -80,9 +80,7 @@ namespace Sd1Tool
                 RegVerSaver.Setvalue();
             }
             Properties.Settings.Default.Save();
-            Text += RegVerSaver.Version;
-            Text += " - ";
-            Text += NowVersion;
+            Text += " " + NowVersion;
             ssize = Size;
         }
         readonly Dictionary<RtnKey, String> keydict = new Dictionary<RtnKey, String>
@@ -191,6 +189,7 @@ namespace Sd1Tool
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Properties.Settings.Default.Save();
+            RegVerSaver.Close();
             _ = runtimes;
             _ = Rtn;
             _ = Rtn;
@@ -327,18 +326,30 @@ namespace Sd1Tool
         {
             public Version Version;
             static RegistryKey HKCU = Registry.CurrentUser;
-            RegistryKey regcontroller = HKCU.OpenSubKey("Software\\Sd1Tool\\", true);
-            Version SelfVersion = new Version();
+            RegistryKey regcontroller;
             public RegistryVersion(Version NowVersion)
             {
-                SelfVersion = NowVersion;
-                object value = regcontroller.GetValue("Software\\Sd1Tool\\Version");
+                Version = NowVersion;
+                RegistryKey ck = HKCU.OpenSubKey("SOFTWARE\\Sd1Tool\\", true);
+                if (ck != null)
+                { regcontroller = ck; }
+                else
+                { regcontroller = HKCU.CreateSubKey("SOFTWARE\\Sd1Tool\\", true); }
+                object value = regcontroller.GetValue("Version");
                 if (value == null)
-                { regcontroller.CreateSubKey("Version",true ).SetValue("Version",NowVersion); }
+                { regcontroller.SetValue("Version",NowVersion); }
+            }
+            public void Setvalue()
+            {
+                regcontroller.SetValue("Version", Version);
             }
             public void Setvalue(Version NewVersion)
             { 
                 regcontroller.SetValue("Version", NewVersion);
+            }
+            public void Close()
+            {
+                regcontroller.Close();
             }
         }
     }
