@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using System.Reflection;
-using System.Configuration;
 
 namespace Sd1Tool
 {
@@ -20,12 +21,13 @@ namespace Sd1Tool
     }
     public partial class Main : Form
     {
+        static Version NowVersion = Assembly.GetExecutingAssembly().GetName().Version;
+        public RegistryVersion RegVerSaver = new RegistryVersion(NowVersion);
         public bool CheckRun() { return Control.IsKeyLocked(Keys.CapsLock); }
         About FAbout = new About();
         String UpdateLog = @"新内容：
 1.新增统计功能
    - 1.统计新增新增发送计数";
-        Version NowVersion = Assembly.GetExecutingAssembly().GetName().Version;
         [DllImport("user32.dll")]
         static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
         Size ssize;
@@ -40,26 +42,17 @@ namespace Sd1Tool
             _ = KEYEVENTF_KEYUP;
         }
         private bool Upgrade()
-        { if (NowVersion > Properties.Settings.Default.Version) { return true; } else { return false; } }
+        { if (NowVersion > RegVerSaver.Version) { return true; } else { return false; } }
         private bool Demotion()
-        { if (NowVersion < Properties.Settings.Default.Version) { return true; } else { return false; } }
+        { if (NowVersion < RegVerSaver.Version) { return true; } else { return false; } }
         List<String> EmjLite = new List<String> { "OvO", "$o$", "XvX", "QAQ", "qvq", "AvA", "AwA", "xd", "XD", "XDD" };
         public Main()
         {
-            //MessageBox.Show(Properties.Settings.Default.Version.ToString());
-            if (Properties.Settings.Default.Version == null)
-            {
-                Properties.Settings.Default.Version = NowVersion;
-                Random ran = new Random();
-                MessageBox.Show("新手教程被吃了！\n" + EmjLite[ran.Next(100) % EmjLite.Count], "糟糕！出错了", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                _ = EmjLite;
-                _ = ran;
-                goto Init;
-            }
+            //MessageBox.Show(RegVerSaver.Version.ToString());
+
             if (Upgrade())
             {
-                MessageBox.Show(UpdateLog, Properties.Settings.Default.Version + " -> " + NowVersion, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                goto Init;
+                MessageBox.Show(UpdateLog, RegVerSaver.Version + " -> " + NowVersion, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -67,18 +60,29 @@ namespace Sd1Tool
                 {
                     DialogResult msresult = MessageBox.Show("降级会导致程序数据无法加载或丢失？\n确定要继续吗？", "降级", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (msresult == DialogResult.Yes)
-                    { goto Init; }
+                    {  }
                     else
                     { Application.Exit(); }
                 }
             }
+            if (RegVerSaver.Version == null)
+            {
+                Random ran = new Random();
+                MessageBox.Show("新手教程被吃了！\n" + EmjLite[ran.Next(100) % EmjLite.Count], "糟糕！出错了", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                _ = EmjLite;
+                _ = ran;
+            }
             Init:
             InitializeComponent();
-            if (Properties.Settings.Default.Version != NowVersion)
+            if (RegVerSaver.Version != NowVersion)
             {
-                Properties.Settings.Default.Version = NowVersion;
+                RegVerSaver.Version = new Version(NowVersion.Major,NowVersion.Minor,NowVersion.Build,NowVersion.Revision);
+                RegVerSaver.Setvalue();
             }
             Properties.Settings.Default.Save();
+            Text += RegVerSaver.Version;
+            Text += " - ";
+            Text += NowVersion;
             ssize = Size;
         }
         readonly Dictionary<RtnKey, String> keydict = new Dictionary<RtnKey, String>
@@ -318,6 +322,24 @@ namespace Sd1Tool
             counter.FormClosed += new FormClosedEventHandler(Counter_Closed);
             ((Button)sender).Enabled = false;
             counter.ShowDialog();
+        }
+        public class RegistryVersion 
+        {
+            public Version Version;
+            static RegistryKey HKCU = Registry.CurrentUser;
+            RegistryKey regcontroller = HKCU.OpenSubKey("Software\\Sd1Tool\\", true);
+            Version SelfVersion = new Version();
+            public RegistryVersion(Version NowVersion)
+            {
+                SelfVersion = NowVersion;
+                object value = regcontroller.GetValue("Software\\Sd1Tool\\Version");
+                if (value == null)
+                { regcontroller.CreateSubKey("Version",true ).SetValue("Version",NowVersion); }
+            }
+            public void Setvalue(Version NewVersion)
+            { 
+                regcontroller.SetValue("Version", NewVersion);
+            }
         }
     }
 }

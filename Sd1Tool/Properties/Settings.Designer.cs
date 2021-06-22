@@ -46,16 +46,5 @@ namespace Sd1Tool.Properties {
                 this["Sends"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Version Version {
-            get {
-                return ((global::System.Version)(this["Version"]));
-            }
-            set {
-                this["Version"] = value;
-            }
-        }
     }
 }
