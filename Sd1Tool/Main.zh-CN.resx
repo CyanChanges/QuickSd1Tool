@@ -161,7 +161,7 @@
     <value>436, 21</value>
   </data>
   <data name="timeschkbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 225</value>
+    <value>26, 228</value>
   </data>
   <data name="sdtimesnud.Location" type="System.Drawing.Point, System.Drawing">
     <value>112, 261</value>
@@ -170,7 +170,7 @@
     <value>12, 266</value>
   </data>
   <data name="DESTORY.Location" type="System.Drawing.Point, System.Drawing">
-    <value>383, 220</value>
+    <value>395, 225</value>
   </data>
   <data name="AchBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>385, 0</value>

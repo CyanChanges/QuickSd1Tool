@@ -21,12 +21,13 @@ namespace Sd1Tool
     }
     public partial class Main : Form
     {
-        static Version NowVersion = Assembly.GetExecutingAssembly().GetName().Version;
+        static readonly Version NowVersion = Assembly.GetExecutingAssembly().GetName().Version;
         public RegistryVersion RegVerSaver = new RegistryVersion(NowVersion);
         public bool CheckRun() { return Control.IsKeyLocked(Keys.CapsLock); }
-        About FAbout = new About();
+        private About FAbout = new About();
         String UpdateLog = @"新内容：
-1.修复版本检测存储问题";
+1.修改了▩▩▩▩▩的▩▩
+   - 将会在▩▩之日时候▩▩▩▩";
         [DllImport("user32.dll")]
         static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
         Size ssize;
@@ -40,15 +41,8 @@ namespace Sd1Tool
             _ = KEYEVENTF_EXTENDEDKEY;
             _ = KEYEVENTF_KEYUP;
         }
-        private bool Upgrade()
-        { if (NowVersion > RegVerSaver.Version) { return true; } else { return false; } }
-        private bool Demotion()
-        { if (NowVersion < RegVerSaver.Version) { return true; } else { return false; } }
-        List<String> EmjLite = new List<String> { "OvO", "$o$", "XvX", "QAQ", "qvq", "AvA", "AwA", "xd", "XD", "XDD" };
-        public Main()
+        private void CkUp() 
         {
-            //MessageBox.Show(RegVerSaver.Version.ToString());
-
             if (Upgrade())
             {
                 MessageBox.Show(UpdateLog, RegVerSaver.Version + " -> " + NowVersion, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -72,14 +66,39 @@ namespace Sd1Tool
                 _ = EmjLite;
                 _ = ran;
             }
-            Init:
-            InitializeComponent();
+            Init:;
+        }
+        private void ChangeVer() 
+        {
             if (RegVerSaver.Version != NowVersion)
             {
-                RegVerSaver.Version = new Version(NowVersion.Major,NowVersion.Minor,NowVersion.Build,NowVersion.Revision);
+                RegVerSaver.Version = new Version(NowVersion.Major, NowVersion.Minor, NowVersion.Build, NowVersion.Revision);
                 RegVerSaver.Setvalue();
             }
             Properties.Settings.Default.Save();
+        }
+        private void UnknownBtnctl() 
+        {
+            DateTime Now = DateTime.Now;
+            if (Now.Month is 4 && Now.Day is 1)
+            {
+                DESTORY.Visible = true;
+                DESTORY.Enabled = false;
+            }
+            else { DESTORY.Visible = false; }
+        }
+        private bool Upgrade()
+        { if (NowVersion > RegVerSaver.Version) { return true; } else { return false; } }
+        private bool Demotion()
+        { if (NowVersion < RegVerSaver.Version) { return true; } else { return false; } }
+        List<String> EmjLite = new List<String> { "OvO", "$o$", "XvX", "QAQ", "qvq", "AvA", "AwA", "xd", "XD", "XDD" };
+        public Main()
+        {
+            //MessageBox.Show(RegVerSaver.Version.ToString());
+            CkUp();
+            InitializeComponent();
+            UnknownBtnctl();
+            ChangeVer();
             Text += " " + NowVersion;
             ssize = Size;
         }
@@ -168,7 +187,7 @@ namespace Sd1Tool
             { Size = new Size(Size.Width, ssize.Height); }
         }
 
-        private void times_Tick(object sender, EventArgs e)
+        private void Times_Tick(object sender, EventArgs e)
         {
             if (!(sdtimesnud.Value > runtimes))
             {
@@ -202,6 +221,7 @@ namespace Sd1Tool
             RightToLeft = RightToLeft.Yes;
             RightToLeftLayout = true;
             DESTORY.Enabled = false;
+            DESTORY.Visible = true;
             timeschkbox.Enabled = false;
             delaynud.Enabled = false;
             delaynud.Value = 5;
@@ -240,7 +260,7 @@ namespace Sd1Tool
         }
 
         /// <summary>
-        /// 神奇 MagicKey 类，勿动！
+        /// 神奇  MagicKey  类，勿动！
         /// ———— Cyq20100313
         /// </summary>
         class MagicKey
@@ -248,15 +268,15 @@ namespace Sd1Tool
             public void Test()
             {
                 // Magic codes Init Start
-                MagicKey.MasterObj master = new MagicKey.MasterObj();
-                master.MasterName = "Cyq20100313";
-                MagicKey magickey = new MagicKey(master);
-                magickey.keyname = "The Magic Key";
-                magickey.Skill.Add("Controller");
-                magickey.MagicPower = 233333.33F;
-                master.MagicPower = 2333333333.333;
+                MagicKey.MasterObj master = new MagicKey.MasterObj { MasterName = "Cyq20100313", MagicPower = 2333333333.333 };
+                MagicKey magickey = new MagicKey(master) { keyname = "The Magic Key", MagicPower = 233333.33F };
+                // 中二的技能增加了  ！ 
+                magickey.Skill.Add(" T h e  C o n t r o l l e r ");
                 master.Skill.Add("T h e   M A S T E R");
-                //master.Out(); 
+                MagicKey.MasterObj BadBoy = new MagicKey.MasterObj { MasterName = "popbob" };
+                BadBoy.Skill.Add(" O p   P l u g i n ! ");
+                BadBoy.Skill.Add(" H a c k e r ");
+                //badboy.Out(); 
                 // Magic codes Init End
             }
             public enum DoAffects
@@ -268,21 +288,28 @@ namespace Sd1Tool
             }
             public class MasterObj
             {
+                public DoAffects Fight(MasterObj MasterObj1, MasterObj MasterObj2)
+                {
+                    if (MasterObj1.Tags.Contains("Dead")  || MasterObj2.Tags.Contains("Dead")  || MasterObj1.Tags.Contains("Fighting") || MasterObj2.Tags.Contains("Fighting")){ return DoAffects.Error; }
+                    MasterObj1.Tags.Add("Fighting");
+                    MasterObj2.Tags.Add("Fighting");
+                    return DoAffects.Successful;
+                }
+                public DoAffects Fight(MasterObj targetMasterObj)
+                {
+                    if (Tags.Contains("Dead")  || targetMasterObj.Tags.Contains("Dead") || Tags.Contains("Fighting") || targetMasterObj.Tags.Contains("Fighting")){ return DoAffects.Error; }
+                    Tags.Add("Fighting");
+                    targetMasterObj.Tags.Add("Fighting");
+                    return DoAffects.Successful;
+                }
                 string Name = "No Master";
                 public Double MagicPower = int.MinValue;
                 public List<string> Skill = new List<string>();
                 public String MasterName { get { return this.Name; } set { this.Name = value; } }
                 public List<MagicKey> OwnKeys = new List<MagicKey>();
-                bool Cksame(String n, String SkillName)
-                {
-                    if (n == SkillName)
-                    { return true; }
-                    else { return false; }
-                }
+                public List<String> Tags = new List<String>();
                 public void Out()
-                {
-                    MessageBox.Show("你的决心碎了亿地！", "提示 - UNDER TOOLS");
-                }
+                { Tags.Add("Dead"); MessageBox.Show("你的决心碎了亿地！", "提示 - UNDER TOOLS"); }
                 public DoAffects UseKey(MagicKey ownkey, String SkillName)
                 {
                     if (!(ownkey.MasterName == Name && ownkey.MasterObject == this) && this.OwnKeys.Exists(t => t == ownkey))
@@ -297,7 +324,7 @@ namespace Sd1Tool
             public string keyname = "Magic Key";
             public List<String> Skill = new List<String>();
             public float MagicPower;
-            MasterObj MasterObject;
+            readonly MasterObj MasterObject;
             public string MasterName;
             public MagicKey(MasterObj master)
             {
@@ -325,11 +352,12 @@ namespace Sd1Tool
         public class RegistryVersion 
         {
             public Version Version;
-            static RegistryKey HKCU = Registry.CurrentUser;
+            private static RegistryKey HKCU = Registry.CurrentUser;
             RegistryKey regcontroller;
+            Version SelfVersion;
             public RegistryVersion(Version NowVersion)
             {
-                Version = NowVersion;
+                SelfVersion = NowVersion;
                 RegistryKey ck = HKCU.OpenSubKey("SOFTWARE\\Sd1Tool\\", true);
                 if (ck != null)
                 { regcontroller = ck; }
@@ -337,20 +365,40 @@ namespace Sd1Tool
                 { regcontroller = HKCU.CreateSubKey("SOFTWARE\\Sd1Tool\\", true); }
                 object value = regcontroller.GetValue("Version");
                 if (value == null)
-                { regcontroller.SetValue("Version",NowVersion); }
+                { regcontroller.SetValue("Version", SelfVersion); Version = null; }
+                else 
+                { Version = new Version(value.ToString()); }
             }
             public void Setvalue()
             {
-                regcontroller.SetValue("Version", Version);
+                regcontroller.SetValue("Version", SelfVersion);
+                Version = SelfVersion;
             }
             public void Setvalue(Version NewVersion)
-            { 
+            {
                 regcontroller.SetValue("Version", NewVersion);
+                Version = NewVersion;
             }
             public void Close()
-            {
-                regcontroller.Close();
+            {regcontroller.Close();}
+        }
+        Random Destoryubtn_rand = new Random();
+        private void DESTORY_MouseEnter(object sender, EventArgs e)
+        {
+            Thread.Sleep(100);
+            int posx = Destoryubtn_rand.Next() % (Size.Width - 20) -10;
+            int posy = Destoryubtn_rand.Next() % Size.Height;
+            while (true) {
+                posy = Destoryubtn_rand.Next() % Size.Height;
+               if (posy >= 30) { continue; } else { break; }
             }
+            Point point = new Point(posx, posy);
+            ((Button)sender).Location = point;
+            //MessageBox.Show(point.ToString());
+        }
+
+        private void DESTORY_MouseLeave(object sender, EventArgs e)
+        {
         }
     }
 }

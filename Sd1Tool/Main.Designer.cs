@@ -47,10 +47,10 @@ namespace Sd1Tool
             this.sdtimesnud = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.times = new System.Windows.Forms.Timer(this.components);
-            this.DESTORY = new System.Windows.Forms.Button();
             this.AchBtn = new System.Windows.Forms.Button();
             this.CountBtn = new System.Windows.Forms.Button();
             this.AboutBtn = new System.Windows.Forms.Button();
+            this.DESTORY = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.delaynud)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sdtimesnud)).BeginInit();
             this.SuspendLayout();
@@ -76,11 +76,11 @@ namespace Sd1Tool
             // 
             // RtnType
             // 
-            resources.ApplyResources(this.RtnType, "RtnType");
             this.RtnType.FormattingEnabled = true;
             this.RtnType.Items.AddRange(new object[] {
             resources.GetString("RtnType.Items"),
             resources.GetString("RtnType.Items1")});
+            resources.ApplyResources(this.RtnType, "RtnType");
             this.RtnType.Name = "RtnType";
             this.RtnType.SelectedIndexChanged += new System.EventHandler(this.RtnType_SelectedIndexChanged);
             // 
@@ -107,12 +107,12 @@ namespace Sd1Tool
             // 
             // delaynud
             // 
-            resources.ApplyResources(this.delaynud, "delaynud");
             this.delaynud.Increment = new decimal(new int[] {
             5,
             0,
             0,
             0});
+            resources.ApplyResources(this.delaynud, "delaynud");
             this.delaynud.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -176,20 +176,7 @@ namespace Sd1Tool
             // 
             // times
             // 
-            this.times.Tick += new System.EventHandler(this.times_Tick);
-            // 
-            // DESTORY
-            // 
-            resources.ApplyResources(this.DESTORY, "DESTORY");
-            this.DESTORY.BackColor = System.Drawing.Color.White;
-            this.DESTORY.Cursor = System.Windows.Forms.Cursors.No;
-            this.DESTORY.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.DESTORY.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.DESTORY.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.DESTORY.ForeColor = System.Drawing.Color.Red;
-            this.DESTORY.Name = "DESTORY";
-            this.DESTORY.UseVisualStyleBackColor = false;
-            this.DESTORY.Click += new System.EventHandler(this.DESTORY_Click);
+            this.times.Tick += new System.EventHandler(this.Times_Tick);
             // 
             // AchBtn
             // 
@@ -211,6 +198,22 @@ namespace Sd1Tool
             this.AboutBtn.Name = "AboutBtn";
             this.AboutBtn.UseVisualStyleBackColor = true;
             this.AboutBtn.Click += new System.EventHandler(this.AboutBtn_Click);
+            // 
+            // DESTORY
+            // 
+            this.DESTORY.BackColor = System.Drawing.Color.White;
+            this.DESTORY.Cursor = System.Windows.Forms.Cursors.No;
+            this.DESTORY.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.DESTORY.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.DESTORY.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            resources.ApplyResources(this.DESTORY, "DESTORY");
+            this.DESTORY.ForeColor = System.Drawing.Color.Red;
+            this.DESTORY.Name = "DESTORY";
+            this.DESTORY.TabStop = false;
+            this.DESTORY.UseVisualStyleBackColor = false;
+            this.DESTORY.Click += new System.EventHandler(this.DESTORY_Click);
+            this.DESTORY.MouseEnter += new System.EventHandler(this.DESTORY_MouseEnter);
+            this.DESTORY.MouseLeave += new System.EventHandler(this.DESTORY_MouseLeave);
             // 
             // Main
             // 
