@@ -52,7 +52,7 @@ namespace Sd1Tool
             {
                 if (Demotion())
                 {
-                    DialogResult msresult = MessageBox.Show("降级会导致程序数据无法加载或丢失？\n确定要继续吗？", "降级", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult msresult = MessageBox.Show("降级可能会导致统计与成就数据丢失？\n确定要继续吗？", "降级", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (msresult == DialogResult.Yes)
                     { goto Init; }
                     else
