@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Sd1Tool")]
 [assembly: AssemblyDescription("快速发送消息工具")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Cyq20100313")]
+[assembly: AssemblyCompany("Cyan Changes")]
 [assembly: AssemblyProduct("Sd1Tool")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
