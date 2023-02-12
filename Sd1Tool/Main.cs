@@ -38,7 +38,7 @@ namespace Sd1Tool
 
             {
                 Sending = !Sending;
-
+                runtimes = Sending ? 0 : runtimes;
                 KeySender.Enabled = Sending;
                 if (Sending & timeschkbox.Checked)
                 {
@@ -55,7 +55,8 @@ namespace Sd1Tool
         private KeyBoardListener keyBoardListener;
         About FAbout = new About();
         String UpdateLog = @"新内容：
-1.修复版本检测存储问题";
+1.修复了使用按键卡死, 不好用的问题
+2.支持(改源码)设置按键, 默认Shift+F2";
         Size ssize;
         RtnKey Rtn = RtnKey.CtrlEnter;
         private void BackKey()
@@ -345,7 +346,7 @@ namespace Sd1Tool
 
         private void Times_Tick(object sender, EventArgs e)
         {
-            if (sdtimesnud.Value >= runtimes)
+            if (runtimes >= sdtimesnud.Value)
             {
                 DosdBar.Value = runtimes;
                 KeySender.Enabled = false;

@@ -182,6 +182,9 @@
   <data name="delaylb.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;DESTORY.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="&gt;&gt;keysend.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -245,6 +248,9 @@
   </data>
   <data name="&gt;&gt;LockchkServicelb.Name" xml:space="preserve">
     <value>LockchkServicelb</value>
+  </data>
+  <data name="&gt;&gt;sdkeys.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;QDText.Parent" xml:space="preserve">
     <value>$this</value>
@@ -354,9 +360,6 @@
   <data name="QDText.Text" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;chkkeyleave.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="lockstats.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -432,17 +435,14 @@
   <data name="DESTORY.Text" xml:space="preserve">
     <value>???</value>
   </data>
-  <data name="&gt;&gt;sddlb.ZOrder" xml:space="preserve">
-    <value>12</value>
+  <data name="&gt;&gt;lockstats.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="AboutBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="delaynud.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
-  </data>
-  <data name="&gt;&gt;LockchkServicelb.ZOrder" xml:space="preserve">
-    <value>8</value>
   </data>
   <data name="timeschkbox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -462,9 +462,6 @@
   <data name="AboutBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;lockstats.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;LockchkServicelb.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -480,8 +477,8 @@
   <data name="DESTORY.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 32</value>
   </data>
-  <data name="sdtextlb.Text" xml:space="preserve">
-    <value>目标文本</value>
+  <data name="LockchkServicelb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>238, 21</value>
   </data>
   <data name="&gt;&gt;QDText.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -513,6 +510,9 @@
   <data name="lockstats.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 21</value>
   </data>
+  <data name="sdtextlb.Text" xml:space="preserve">
+    <value>目标文本</value>
+  </data>
   <data name="&gt;&gt;RtnType.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
@@ -521,9 +521,6 @@
   </data>
   <data name="sdtextlb.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;lockstats.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;timeschkbox.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -543,8 +540,11 @@
   <data name="&gt;&gt;AchBtn.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;DESTORY.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;sddlb.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;AboutBtn.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="sdtimesnud.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -579,7 +579,7 @@
   <data name="&gt;&gt;CountBtn.Name" xml:space="preserve">
     <value>CountBtn</value>
   </data>
-  <data name="&gt;&gt;AboutBtn.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lockstats.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;timeschkbox.Type" xml:space="preserve">
@@ -600,11 +600,11 @@
   <data name="AchBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 32</value>
   </data>
-  <data name="LockchkServicelb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>238, 21</value>
-  </data>
-  <data name="&gt;&gt;sdkeys.Type" xml:space="preserve">
+  <data name="&gt;&gt;chkkeyleave.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LockchkServicelb.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="&gt;&gt;CountBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -618,14 +618,14 @@
   <metadata name="keysend.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>23, 14</value>
   </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <metadata name="times.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>345, 15</value>
   </metadata>
   <metadata name="chkkeyleave.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>154, 15</value>
   </metadata>
-  <metadata name="times.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>345, 15</value>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="sdkeys.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>23, 14</value>

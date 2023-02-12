@@ -146,10 +146,10 @@
     <value>22, 169</value>
   </data>
   <data name="Tips.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 21</value>
+    <value>208, 21</value>
   </data>
   <data name="Tips.Text" xml:space="preserve">
-    <value>- 使用 Ctrl+Alt+T 启动</value>
+    <value>- 使用 Alt+F2 启动</value>
   </data>
   <data name="delaylb.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 126</value>
